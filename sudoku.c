@@ -66,6 +66,15 @@ int is_valid(Node* n){
          columna[n->sudo[i][j]-1] = 1;
          
       }
+      for(j = 0; j < 9; j++){
+         if(n->sudo[i][j] != 0){
+            if(cuadro[n->sudo[i][j]-1] == 1){
+               return 0;
+            }
+            
+         }
+         cuadro[n->sudo[i][j]-1] = 1;
+      }
       
    }
 }

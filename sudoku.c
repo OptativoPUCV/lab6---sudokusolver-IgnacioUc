@@ -44,8 +44,30 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   
-    return 1;
+   int i,j;
+   int *fila = (int*) calloc(9,sizeof(int));
+   int *columna = (int*) calloc(9,sizeof(int));
+   int *cuadro = (int*) calloc(9,sizeof(int));
+   for(i=0;i<9;i++){
+      for(j = 0; j < 9; j++){
+         if(n->sudo[i][j] != 0){
+            if(fila[n->sudo[i][j]-1] == 1)
+               return 0;
+         }
+         fila[n->sudo[i][j]-1] = 1;
+         
+      }
+      for(j = 0; j < 9; j++){
+         if(n->sudo[i][j] != 0){
+            if(columna[n->sudo[i][j]-1] == 1)
+               return 0;
+            
+         }
+         columna[n->sudo[i][j]-1] = 1;
+         
+      }
+      
+   }
 }
 
 
@@ -79,10 +101,7 @@ int is_final(Node* n){
             return 0;
          }
       }
-      
-      
    }
-   
     return 1;
 }
 

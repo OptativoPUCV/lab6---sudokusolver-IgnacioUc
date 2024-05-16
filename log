@@ -112,3 +112,14 @@ sudoku.c:135:13: error: unused variable ‘aux’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 c0bfe3d
+Thu 16 May 2024 03:42:41 PM UTC: 
+ sudoku.c | 1 -
+ 1 file changed, 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:134:13: error: unused variable ‘list’ [-Werror=unused-variable]
+  134 |       List* list = get_adj_nodes(n);
+      |             ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+488a8df

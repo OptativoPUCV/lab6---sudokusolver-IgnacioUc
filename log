@@ -90,3 +90,14 @@ sudoku.c:129:13: error: unused variable ‘n’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 50f02b3
+Thu 16 May 2024 03:40:55 PM UTC: 
+ sudoku.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:126:8: error: unused variable ‘n’ [-Werror=unused-variable]
+  126 |    int n;
+      |        ^
+cc1: all warnings being treated as errors
+Compilation failed
+22d7c00

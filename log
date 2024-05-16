@@ -153,3 +153,27 @@ Thu 16 May 2024 03:58:24 PM UTC:
  tests:  7|2
 total_score: 50/70
 dcd8968
+Thu 16 May 2024 04:04:40 PM UTC: 
+ sudoku.c | 45 ++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 42 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:171:20: error: implicit declaration of function ‘get_adj_nodes’; did you mean ‘get_valid_adj_nodes’? [-Werror=implicit-function-declaration]
+  171 |       List* list = get_adj_nodes(n);
+      |                    ^~~~~~~~~~~~~
+      |                    get_valid_adj_nodes
+sudoku.c:171:20: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c: In function ‘adj_test1’:
+test.c:62:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   62 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c:95:9: error: assignment to ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   95 |     adj = get_adj_nodes(initial);
+      |         ^
+test.c: In function ‘test_mod_adj’:
+test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  155 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+e9c74cd

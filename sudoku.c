@@ -75,8 +75,15 @@ int is_valid(Node* n){
          }
          cuadro[n->sudo[i][j]-1] = 1;
       }
+      for(j = 0; j < 9; j++){
+         fila[j] = 0;
+         columna[j] = 0;
+         cuadro[j] = 0;
+         
+      }
       
    }
+   return 1;
 }
 
 

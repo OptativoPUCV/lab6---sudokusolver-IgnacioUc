@@ -87,63 +87,24 @@ int is_valid(Node* n){
 }
 
 
-List* get_valid_adj_nodes(Node* n) {
-    List* list = createList();
-    int i, j;
-    int *fila = (int*)calloc(9, sizeof(int));
-    int *columna = (int*)calloc(9, sizeof(int));
-    int *cuadro = (int*)calloc(9, sizeof(int));
-
-    for (i = 0; i < 9; i++) {
-        for (j = 0; j < 9; j++) {
-            if (n->sudo[i][j] == 0) {
+List* get_adj_nodes(Node* n){
+    List* list=createList();
+    int i,j;
+    for(i=0;i<9;i++){
+        for(j=0;j<9;j++){
+            if(n->sudo[i][j]==0){
                 int k;
-                for (k = 1; k <= 9; k++) {
-                    Node* adj = copy(n);
-                    adj->sudo[i][j] = k;
-                    // Reiniciar los arrays de fila, columna y cuadro
-                    memset(fila, 0, 9 * sizeof(int));
-                    memset(columna, 0, 9 * sizeof(int));
-                    memset(cuadro, 0, 9 * sizeof(int));
-
-                    // Validar si el nodo adyacente es válido
-                    int valido = 1;
-                    for (int x = 0; x < 9; x++) {
-                        int val_fila = adj->sudo[i][x] - 1;
-                        int val_columna = adj->sudo[x][j] - 1;
-                        int val_cuadro = adj->sudo[3 * (i / 3) + x / 3][3 * (j / 3) + x % 3] - 1;
-
-                        if (val_fila >= 0 && fila[val_fila] == 1) {
-                            valido = 0;
-                            break;
-                        }
-                        fila[val_fila] = 1;
-
-                        if (val_columna >= 0 && columna[val_columna] == 1) {
-                            valido = 0;
-                            break;
-                        }
-                        columna[val_columna] = 1;
-
-                        if (val_cuadro >= 0 && cuadro[val_cuadro] == 1) {
-                            valido = 0;
-                            break;
-                        }
-                        cuadro[val_cuadro] = 1;
+                for(k=1;k<=9;k++){
+                    Node* adj=copy(n);
+                    adj->sudo[i][j]=k;
+                    if(is_valid(adj)){
+                        pushBack(list,adj);
                     }
-
-                    if (valido) {
-                        pushBack(list, adj);
-                    } else {
-                        free(adj);
-                    }
+                   
                 }
             }
         }
     }
-    free(fila);
-    free(columna);
-    free(cuadro);
     return list;
 }
 

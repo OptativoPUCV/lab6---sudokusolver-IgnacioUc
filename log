@@ -177,3 +177,9 @@ test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointe
 cc1: all warnings being treated as errors
 Compilation failed
 e9c74cd
+Thu 16 May 2024 04:04:46 PM UTC: 
+ sudoku.c | 45 +++------------------------------------------
+ 1 file changed, 3 insertions(+), 42 deletions(-)
+ tests:  7|2
+total_score: 50/70
+beb1103

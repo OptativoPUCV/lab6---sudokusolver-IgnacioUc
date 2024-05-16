@@ -100,8 +100,9 @@ List* get_adj_nodes(Node* n){
                     if(is_valid(adj)){
                         pushBack(list,adj);
                     }
-                   
+                   return list;
                 }
+               
             }
         }
     }

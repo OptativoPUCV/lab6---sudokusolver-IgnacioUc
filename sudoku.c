@@ -80,8 +80,10 @@ int is_final(Node* n){
          }
       }
       
+      
    }
-    return 0;
+   
+    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){

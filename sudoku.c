@@ -132,6 +132,11 @@ Node* DFS(Node* initial, int* cont){
          return n;
       }
       List* list = get_adj_nodes(n);
+      Node* aux = first(list);
+      while(aux){
+         push(s,aux);
+         aux = next(list);
+      }
       
    }
    

@@ -2,3 +2,14 @@ Thu 16 May 2024 03:16:42 PM UTC:
  tests:  0|5
 total_score: 0/70
 334d81b
+Thu 16 May 2024 03:18:05 PM UTC: 
+ sudoku.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:60:27: error: unused variable ‘adj’ [-Werror=unused-variable]
+   60 |                     Node* adj=copy(n);
+      |                           ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+f402429

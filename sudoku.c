@@ -118,11 +118,17 @@ int is_final(Node* n){
          }
       }
    }
+   
     return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
-   
+   int i,j ;
+   Stack* s = createStack();
+   push(s,initial);
+   while(!is_empty(s)){
+      Node* n = top(s);
+   }
   return NULL;
 }
 

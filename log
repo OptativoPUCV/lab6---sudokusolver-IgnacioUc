@@ -62,3 +62,20 @@ Thu 16 May 2024 03:32:22 PM UTC:
  tests:  6|2
 total_score: 45/70
 27ba6ef
+Thu 16 May 2024 03:39:13 PM UTC: 
+ sudoku.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:130:13: error: unused variable ‘n’ [-Werror=unused-variable]
+  130 |       Node* n = top(s);
+      |             ^
+sudoku.c:126:10: error: unused variable ‘j’ [-Werror=unused-variable]
+  126 |    int i,j ;
+      |          ^
+sudoku.c:126:8: error: unused variable ‘i’ [-Werror=unused-variable]
+  126 |    int i,j ;
+      |        ^
+cc1: all warnings being treated as errors
+Compilation failed
+6fc0615

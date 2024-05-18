@@ -44,44 +44,37 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   int i,j;
-   int *fila = (int*) calloc(9,sizeof(int));
-   int *columna = (int*) calloc(9,sizeof(int));
-   int *cuadro = (int*) calloc(9,sizeof(int));
-   for(i=0;i<9;i++){
-      for(j = 0; j < 9; j++){
-         if(n->sudo[i][j] != 0){
-            if(fila[n->sudo[i][j]-1] == 1)
-               return 0;
+   int i, j, k, l, val;
+   int fila[9], columna[9], cuadro[9];
+
+   // Validar filas y columnas
+   for (i = 0; i < 9; i++) {
+      memset(fila, 0, sizeof(fila));
+      memset(columna, 0, sizeof(columna));
+      for (j = 0; j < 9; j++) {
+         // Validar fila
+         if ((val = n->sudo[i][j]) != 0) {
+            if (fila[val - 1]++) return 0;
          }
-         fila[n->sudo[i][j]-1] = 1;
-         
-      }
-      for(j = 0; j < 9; j++){
-         if(n->sudo[i][j] != 0){
-            if(columna[n->sudo[i][j]-1] == 1)
-               return 0;
-            
+         // Validar columna
+         if ((val = n->sudo[j][i]) != 0) {
+            if (columna[val - 1]++) return 0;
          }
-         columna[n->sudo[i][j]-1] = 1;
-         
       }
-      for(j = 0; j < 9; j++){
-         if(n->sudo[i][j] != 0){
-            if(cuadro[n->sudo[i][j]-1] == 1){
-               return 0;
+   }
+
+   // Validar subcuadrículas
+   for (i = 0; i < 9; i += 3) {
+      for (j = 0; j < 9; j += 3) {
+         memset(cuadro, 0, sizeof(cuadro));
+         for (k = 0; k < 3; k++) {
+            for (l = 0; l < 3; l++) {
+               if ((val = n->sudo[i + k][j + l]) != 0) {
+                  if (cuadro[val - 1]++) return 0;
+               }
             }
-            
          }
-         cuadro[n->sudo[i][j]-1] = 1;
       }
-      for(j = 0; j < 9; j++){
-         fila[j] = 0;
-         columna[j] = 0;
-         cuadro[j] = 0;
-         
-      }
-      
    }
    return 1;
 }
